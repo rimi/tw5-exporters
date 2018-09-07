@@ -1,0 +1,99 @@
+created: 20180827063640016
+description: Export open tiddlers for deck.js
+extension: .html
+modified: 20180827074235122
+tags: $:/tags/Exporter
+title: $:/plugins/rimi/exporters/deck.js/exporter
+type: text/vnd.tiddlywiki
+
+\define renderContent()
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"&gt;
+  &lt;meta name="viewport" content="width=1024, user-scalable=no"&gt;
+
+  &lt;title&gt;Your deck.js Presentation&lt;/title&gt;
+
+  &lt;!-- Required stylesheet --&gt;
+  &lt;link rel="stylesheet" media="screen" href="core/deck.core.css"&gt;
+
+  &lt;!-- Extension CSS files go here. Remove or add as needed. --&gt;
+  &lt;link rel="stylesheet" media="screen" href="extensions/goto/deck.goto.css"&gt;
+  &lt;link rel="stylesheet" media="screen" href="extensions/menu/deck.menu.css"&gt;
+  &lt;link rel="stylesheet" media="screen" href="extensions/navigation/deck.navigation.css"&gt;
+  &lt;link rel="stylesheet" media="screen" href="extensions/status/deck.status.css"&gt;
+  &lt;link rel="stylesheet" media="screen" href="extensions/scale/deck.scale.css"&gt;
+
+  &lt;!-- Style theme. More available in /themes/style/ or create your own. --&gt;
+  &lt;link rel="stylesheet" media="screen" href="themes/style/web-2.0.css"&gt;
+
+  &lt;!-- Transition theme. More available in /themes/transition/ or create your own. --&gt;
+  &lt;link rel="stylesheet" media="screen" href="themes/transition/horizontal-slide.css"&gt;
+
+  &lt;!-- Basic black and white print styles --&gt;
+  &lt;link rel="stylesheet" media="print" href="core/print.css"&gt;
+
+  &lt;!-- Required Modernizr file --&gt;
+  &lt;script src="modernizr.custom.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="deck-container"&gt;
+
+    &lt;!-- Begin slides. Just make elements with a class of slide. --&gt;
+<$list filter="[list[$:/StoryList]]">
+&lt;section class="slide"&gt;
+{{!!title}}
+{{||$:/core/templates/html-tiddler}}
+&lt;/section&gt;
+</$list>
+&lt;!-- End slides. --&gt;
+
+    &lt;!-- Begin extension snippets. Add or remove as needed. --&gt;
+
+    &lt;!-- deck.navigation snippet --&gt;
+    &lt;div aria-role="navigation"&gt;
+      &lt;a href="#" class="deck-prev-link" title="Previous"&gt;&#8592;&lt;/a&gt;
+      &lt;a href="#" class="deck-next-link" title="Next"&gt;&#8594;&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;!-- deck.status snippet --&gt;
+    &lt;p class="deck-status" aria-role="status"&gt;
+      &lt;span class="deck-status-current"&gt;&lt;/span&gt;
+      /
+      &lt;span class="deck-status-total"&gt;&lt;/span&gt;
+    &lt;/p&gt;
+
+    &lt;!-- deck.goto snippet --&gt;
+    &lt;form action="." method="get" class="goto-form"&gt;
+      &lt;label for="goto-slide"&gt;Go to slide:&lt;/label&gt;
+      &lt;input type="text" name="slidenum" id="goto-slide" list="goto-datalist"&gt;
+      &lt;datalist id="goto-datalist"&gt;&lt;/datalist&gt;
+      &lt;input type="submit" value="Go"&gt;
+    &lt;/form&gt;
+
+    &lt;!-- End extension snippets. --&gt;
+  &lt;/div&gt;
+
+&lt;!-- Required JS files. --&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="core/deck.core.js"&gt;&lt;/script&gt;
+
+&lt;!-- Extension JS files. Add or remove as needed. --&gt;
+&lt;script src="extensions/menu/deck.menu.js"&gt;&lt;/script&gt;
+&lt;script src="extensions/goto/deck.goto.js"&gt;&lt;/script&gt;
+&lt;script src="extensions/status/deck.status.js"&gt;&lt;/script&gt;
+&lt;script src="extensions/navigation/deck.navigation.js"&gt;&lt;/script&gt;
+&lt;script src="extensions/scale/deck.scale.js"&gt;&lt;/script&gt;
+
+&lt;!-- Initialize the deck. You can put this in an external file if desired. --&gt;
+&lt;script&gt;
+  $(function() {
+    $.deck('.slide');
+  });
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+\end
+<<renderContent>>

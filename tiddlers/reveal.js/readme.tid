@@ -1,0 +1,12 @@
+created: 20180827073834243
+modified: 20180827084509822
+tags: 
+title: $:/plugins/rimi/exporters/reveal.js/readme
+type: text/vnd.tiddlywiki
+
+Exporter for [[reveal.js|https://revealjs.com]] ([[Github|https://github.com/hakimel/reveal.js]])
+
+[[List of Plugins|https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware]]
+
+* [[Exporter|$:/plugins/rimi/exporters/reveal.js/exporter]]
+* [[Config|$:/plugins/rimi/exporters/reveal.js/config]]

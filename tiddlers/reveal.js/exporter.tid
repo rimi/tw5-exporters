@@ -1,0 +1,69 @@
+created: 20180822072600866
+description: Export open tiddlers for reveal.js
+extension: .html
+modified: 20180827083751771
+tags: $:/tags/Exporter
+title: $:/plugins/rimi/exporters/reveal.js/exporter
+type: text/vnd.tiddlywiki
+
+\define sl() <$text text='/'/>
+
+\define renderContent()
+&lt;!doctype html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;
+
+
+		&lt;title&gt;reveal.js&lt;/title&gt;
+
+
+		&lt;link rel="stylesheet" href="{{$:/plugins/rimi/exporters/reveal.js/config!!exporters.revealjs.server}}css/reveal.css"&gt;
+		&lt;link rel="stylesheet" href="{{$:/plugins/rimi/exporters/reveal.js/config!!exporters.revealjs.server}}css/theme/black.css"&gt;
+
+		&lt;!-- Theme used for syntax highlighting of code --&gt;
+		&lt;link rel="stylesheet" href="{{$:/plugins/rimi/exporters/reveal.js/config!!exporters.revealjs.server}}lib/css/zenburn.css"&gt;
+
+		&lt;!-- Printing and PDF exports --&gt;
+		&lt;script&gt;
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div class="reveal"&gt;
+			&lt;div class="slides"&gt;
+<$list filter="[list[$:/StoryList]]">
+&lt;section&gt;
+{{!!title}}
+{{||$:/core/templates/html-tiddler}}
+&lt;/section&gt;
+</$list>
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;script src="{{$:/plugins/rimi/exporters/reveal.js/config!!exporters.revealjs.server}}lib/js/head.min.js"&gt;&lt;/script&gt;
+		&lt;script src="{{$:/plugins/rimi/exporters/reveal.js/config!!exporters.revealjs.server}}js/reveal.js"&gt;&lt;/script&gt;
+
+		&lt;script&gt;
+			<<sl>><<sl>> More info about config & dependencies:
+			<<sl>><<sl>> - https://github.com/hakimel/reveal.js#configuration
+			<<sl>><<sl>> - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: '{{$:/plugins/rimi/exporters/reveal.js/config!!exporters.revealjs.server}}plugin/markdown/marked.js' },
+					{ src: '{{$:/plugins/rimi/exporters/reveal.js/config!!exporters.revealjs.server}}plugin/markdown/markdown.js' },
+					{ src: '{{$:/plugins/rimi/exporters/reveal.js/config!!exporters.revealjs.server}}plugin/menu/menu.js' },
+					{ src: '{{$:/plugins/rimi/exporters/reveal.js/config!!exporters.revealjs.server}}plugin/notes/notes.js', async: true },
+					{ src: '{{$:/plugins/rimi/exporters/reveal.js/config!!exporters.revealjs.server}}plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		&lt;/script&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+\end
+<<renderContent>>

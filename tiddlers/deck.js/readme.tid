@@ -1,0 +1,9 @@
+created: 20180827063921926
+modified: 20180827065002871
+tags: 
+title: $:/plugins/rimi/exporters/deck.js/readme
+type: text/vnd.tiddlywiki
+
+Exporter for [[deck.js|http://imakewebthings.com/deck.js/]] ([[Github|https://github.com/imakewebthings/deck.js]])
+
+* [[Exporter|$:/plugins/rimi/exporters/deck.js/exporter]]

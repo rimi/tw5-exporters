@@ -1,0 +1,11 @@
+created: 20180827064152433
+modified: 20180827065207201
+tags: 
+title: $:/plugins/rimi/exporters/twitwi_deck.js/readme
+type: text/vnd.tiddlywiki
+
+Exporter for [[Rémi Emonet's deck.js Extensions|https://home.heeere.com/tech-deckjs-ext.html]] ([[Starterkit@Github|https://github.com/twitwi/deck.js-starterkit]])
+
+* [[Exporter|$:/plugins/rimi/exporters/twitwi_deck.js/exporter]]
+* [[CSS Style|$:/plugins/rimi/exporters/twitwi_deck.js/light-red-dense.css]]
+* [[deck.js-packed|$:/plugins/rimi/exporters/twitwi_deck.js/deck.js-packed]]

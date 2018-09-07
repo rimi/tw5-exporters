@@ -1,0 +1,11 @@
+created: 20180827090003579
+modified: 20180827090023846
+tags: 
+title: Exporters - Plugin Einstieg
+tmap.id: 63ad8daa-3903-43ad-b015-8de59894fe50
+type: text/vnd.tiddlywiki
+
+* Exporters
+** [[deck.js|$:/plugins/rimi/exporters/deck.js/readme]]
+** [[twitwi_deck.js|$:/plugins/rimi/exporters/twitwi_deck.js/readme]]
+** [[reveal.js|$:/plugins/rimi/exporters/reveal.js/readme]]

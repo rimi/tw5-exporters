@@ -1,0 +1,7 @@
+created: 20180827075123182
+exporters.revealjs.server: http://localhost:8000/
+modified: 20180827075300617
+tags: 
+title: $:/plugins/rimi/exporters/reveal.js/config
+type: text/vnd.tiddlywiki
+

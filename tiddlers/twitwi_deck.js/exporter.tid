@@ -1,0 +1,114 @@
+created: 20180827065151905
+description: Export open tiddlers for TWITWI Deck.JS
+extension: .html
+modified: 20180827065737066
+tags: $:/tags/Exporter
+title: $:/plugins/rimi/exporters/twitwi_deck.js/exporter
+type: text/vnd.tiddlywiki
+
+\define renderContent()
+<$importvariables filter="[[$:/plugins/rimi/slides/content-macros]]">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+            
+        &lt;title&gt;TODO: deck.js StarterKit template&lt;/title&gt;
+
+        &lt;meta name="author" content="TODO: Rémi Bob Emonet"&gt;
+        &lt;meta name="venue" content="TODO:"&gt;
+        &lt;meta name="date" content="TODO: 2017-08-23"&gt;
+
+        &lt;style type="text/css"&gt;
+            /* custom css can be written here, some examples provided */
+            
+            /* for the base demo */
+            .in-red {color: red !important; text-decoration: underline;}
+            
+            /* for the svg demo */
+            svg .in-red {fill: darkred; fill-opacity: .5; stroke: white;}
+            
+            .dense {font-size: 66%;}
+
+            /* a few nicer slides */
+            .blackbg {background: black !important;}
+            .title-slide ul li { list-style: none; }
+            .title-slide ul {
+                font-size: 20px; color: darkgrey;
+                text-align: center;
+                position: absolute; bottom: 50px; left:0; right: 0;
+            }
+
+            /* for the container styling demo */
+            .bgred {background: #FAA !important;}
+            .zoomed-out {
+                transform: rotate(45deg) scale(0.5, 0.5);
+                transition: 1s transform;
+            }
+            /* show last sub slide */
+            .deck-container.lastsubslide:not(.no-status)::after {
+               position: absolute;
+               right: 0; bottom: 0;
+               content: "⛶";
+               color: grey;
+               font-size: 40px;
+            }
+
+{{$:/plugins/rimi/exporters/twitwi_deck.js/light-red-dense.css}}
+
+        &lt;/style&gt;
+
+
+	&lt;script&gt;
+{{$:/plugins/rimi/exporters/twitwi_deck.js/deck.js-packed}}
+
+	&lt;/script&gt;
+        &lt;script&gt;
+            var cssAndJs = []; &#47;&#47; include the theme (can add any css or js to the list)
+            var options = {}; &#47;&#47; to override default deck.js options
+            includedeck(cssAndJs, options);
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class="deck-container"&gt;
+
+            &lt;!&#45;&#45; splash screen when loading &#45;&#45;&gt;
+            &lt;div class="deck-loading-splash" style="background: black; color: chartreuse;"&gt;
+                &lt;span class="vcenter" style="font-size: 30px; font-family: Arial; "&gt;Please wait, while the deck is loading…&lt;/span&gt;
+            &lt;/div&gt;
+
+<$list filter="[list[$:/StoryList]]">
+		&lt;section class="slide"&gt;
+		&lt;div class="slide-breadcrumbs"&gt;
+		<$set name='CurrentBreadCrumbFilter' filter='[is[current]]'>
+			<<breadcrumbs>>
+		</$set>
+		&lt;/div&gt;
+		<$list filter="[is[current]tag[slide]]">
+		&lt;h3&gt;{{!!caption}}&lt;/h3&gt;
+		</$list>
+		<$list filter="[is[current]tag[slide-set]]">
+		&lt;h2&gt;{{!!caption}}&lt;/h2&gt;
+		</$list>
+		<$list filter="[is[current]tag[slide-section]]">
+		&lt;h1&gt;{{!!caption}}&lt;/h1&gt;
+		</$list>
+
+{{||$:/core/templates/html-tiddler}}
+
+		&lt;/section&gt;
+</$list>
+
+            &lt;!&#45;&#45; footer and other decorations &#45;&#45;&gt;
+            &lt;p class="deck-status deck-progress-10"&gt;
+                &lt;span class="deck-status-current"&gt;&lt;/span&gt; / &lt;span class="deck-status-total"&gt;&lt;/span&gt; − &lt;span class="var-author"&gt;automatically replaced by the author&lt;/span&gt; − &lt;span class="var-title"&gt;automatically replaced by the title&lt;/span&gt;
+            &lt;/p&gt;
+
+
+        &lt;/div&gt;
+    &lt;/body&gt;
+
+&lt;/html&gt;
+</$importvariables>
+\end
+<<renderContent>>
